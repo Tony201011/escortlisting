@@ -157,7 +157,9 @@
 
 @media screen and (max-width: 767px) {
     .header-nav .free-days {
-        display: none;
+        /* display: none; */
+        width: 100%;
+        justify-content: center;
     }
 
     .listing-search-top .advertiser-search {
