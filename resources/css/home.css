@@ -1,0 +1,194 @@
+.home-page .hero-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff4d4f;
+}
+
+.home-page .search-bar {
+    /* width: 100%; */
+    /* max-width: 600px; */
+    margin: 0 auto 10px;
+    position: relative;
+    background-color: #f4f6f8;
+    border-radius: 1.5rem;
+    padding: 1rem;
+}
+
+.home-page .search-bar #searchInput {
+    padding: 15px 115px 15px 35px;
+    border-radius: 1.125rem;
+    border: 1px solid #ccc;
+}
+
+.home-page .search-bar .fa-search {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+}
+
+.home-page .search-bar .distance:focus-visible {
+    outline: none;
+}
+
+.home-page .search-bar .distance {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #666;
+    font-size: 0.9rem;
+    padding: 10px 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-left: 1px solid #ccc;
+}
+
+.home-page .search-bar .distance option {
+    padding: 10px;
+}
+
+.home-page .search-bar .search-box-checkbuttons-field {
+    margin-right: .5rem;
+    box-shadow: 0 0 .875rem 0 #e3e4e5;
+    border-radius: 1.125rem;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    align-items: center;
+    position: relative;
+}
+
+.home-page .search-bar .search-box-checkbuttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.home-page .search-bar .inline-checkbutton-input {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.home-page .search-bar .inline-checkbutton-label {
+    appearance: none;
+    border: 0 none;
+    background: #fff;
+    color: #5d738d;
+    font-family: Cabin, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    text-align: center;
+    padding: .75rem .875rem;
+    border-radius: 1.125rem;
+    font-size: .90rem;
+    border: 2px solid rgba(0, 0, 0, 0);
+    white-space: nowrap;
+    margin-bottom: 0;
+    height: 3.5rem;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.home-page .search-bar .inline-checkbutton {
+    margin-right: 0;
+    box-shadow: 0 0 .875rem 0 #e3e4e5;
+    border-radius: 1.125rem;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    align-items: center;
+    position: relative;
+}
+
+.home-page .search-bar input:checked+.inline-checkbutton-label {
+    border-color: #ea3e46;
+    color: #ea3e46;
+}
+
+.home-page .search-bar .filter-submit {
+    border-radius: 1.125rem;
+    padding: .85rem 1.5rem;
+}
+
+.home-page .illustration-container {
+    margin-top: 20px;
+}
+
+.home-page .illustration {
+    max-width: 100%;
+    height: auto;
+}
+
+.home-page #mainContainer {
+    background-color: rgb(255, 255, 255);
+    padding-top: 25px;
+    padding-bottom: 95px;
+    min-height: 650px;
+}
+
+.esc-list-card .card .availableNow {
+    z-index: 2;
+    position: absolute;
+    background-color: #285aa9ff;
+    right: 12px;
+    left: 12px;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 3px;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+.esc-list-card .card .cardInfo {
+    padding: 10px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.esc-list-card .card .cardName {
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #b62542ff;
+}
+
+.esc-list-card .card .cardInfoRegion {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.esc-list-card .card .cardInfoHeader {
+    height: 50px;
+    overflow: hidden;
+}
+
+.esc-list-card .card .cardNameBtn {
+    padding: 4px 0;
+}
+
+.esc-list-card .card .cardNameBtn a {
+    display: block;
+    background-color: #b62542ff;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
