@@ -1,0 +1,145 @@
+.sidebar-auth {
+    min-height: 100vh;
+    /* background-color: #f8f9fa; */
+}
+
+.sidebar-auth .accordion-item {
+    border: 0;
+    background-color: #635e5e;
+    padding: 15px;
+    border-radius: 0;
+}
+
+.sidebar-auth .accordion-group .accordion-item {
+    padding: 5px 0px;
+}
+
+.sidebar-auth .accordion-item a,
+.sidebar-auth .accordion-item .accordion-button {
+    color: #fff!important;
+    font-weight: 400;
+}
+
+.sidebar-auth .accordion-item .accordion-button:not(.collapsed),
+.sidebar-auth .accordion-item .accordion-button:hover,
+.sidebar-auth .accordion-group .accordion-inner a:hover,
+.sidebar-auth .accordion-item:hover,
+.sidebar-auth .accordion-item:hover a {
+    background-color: #ddd!important;
+    color: #000!important;
+    font-weight: 600;
+}
+
+.sidebar-auth .accordion-item a i,
+.sidebar-auth .accordion-item .accordion-button i,
+.sidebar-auth .accordion-group .accordion-inner a {
+    color: #fff!important;
+}
+.sidebar-auth .accordion-group .accordion-inner {
+    background-color: #635e5e;
+}
+
+.sidebar-auth .nav-link.active {
+    font-weight: bold;
+    background-color: #dee2e6;
+}
+
+.dashb-main,
+.dashb-nav {
+    border-left: 1px solid var(--bbs-mybbs-border);
+}
+
+.dashb-nav {
+    padding: 20px 0 !important;
+    /* background-color: #181818; */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #ddd;
+    box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+
+.sidebar-auth a.accordion-link:hover,
+.sidebar-auth .accordion-button.collapsed:hover,
+.sidebar-auth a.accordion-link.active {
+    color: var(--bbs-blue);
+    background: var(--CoStar-Gray50);
+    text-decoration: none;
+}
+
+.bbsIcon.filled,
+.clicked.bbsIcon {
+    font-style: italic;
+}
+
+.sidebar-auth .accordion-body.collapse.show,
+.sidebar-auth .accordion-body.collapsing,
+.sidebar-auth .list-group-item:hover {
+    background: var(--CoStar-Gray50);
+}
+
+.sidebar-auth .accordion-body {
+    padding: 0;
+}
+
+.sidebar-auth a.list-group-item {
+    color: var(--bbs-broker-desc);
+    --bs-list-group-item-padding-y: .6rem;
+    --bs-list-group-item-padding-x: 3rem;
+    padding-right: var(--bbs-gutter-0);
+}
+
+.sidebar-auth .list-group-btn.navBtn {
+    padding: var(--bbs-gutter-16);
+}
+
+.sidebar-auth .pmBadge {
+    font-size: var(--m-body-xxs);
+    background-color: var(--bbs-blue);
+    color: var(--CoStar-White);
+    padding: var(--bbs-gutter-2) var(--bbs-gutter-6);
+    display: flex;
+    gap: var(--bbs-gutter-4);
+    align-items: center;
+}
+
+.sidebar-auth a.list-group-item:hover,
+#mybbsNav a.list-group-item.active {
+    color: var(--bbs-blue);
+    text-decoration: none;
+}
+
+.sidebar-auth .list-group-item.active,
+.sidebar-auth a.list-group-item:hover {
+    background: var(--CoStar-White);
+}
+
+.sidebar-auth .accordion-button,
+.sidebar-auth .accordion-link,
+.sidebar-auth a.list-group-item {
+    --bs-accordion-btn-padding-y: .6rem;
+    --bs-accordion-btn-padding-x: 1.1rem;
+    --bs-accordion-btn-color: var(--CoStar-Gray700);
+    --bs-accordion-btn-bg: var(--CoStar-White);
+    --bs-accordion-btn-focus-border-color: var(--CoStar-White);
+    --bs-accordion-btn-focus-box-shadow: none;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 300;
+    display: flex;
+}
+
+.sidebar-auth .myBBSad {
+    padding: var(--bbs-gutter-20);
+    border-top: 1px dotted var(--bbs-mybbs-border);
+    border-bottom: 1px dotted var(--bbs-mybbs-border);
+    margin-top: var(--bbs-gutter-32);
+}
+
+.myBBSad.active {
+    display: block;
+}
+
+.margin-b-10 {
+    margin-bottom: var(--bbs-gutter-10);
+}
