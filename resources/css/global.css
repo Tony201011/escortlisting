@@ -131,10 +131,16 @@
 }
 
 .footer {
-    background-color: rgb(245, 245, 245);
+    /* background-color: rgb(245, 245, 245); */
+    background-color: #181818;
+    color: #fff;
     width: 100%;
     padding-top: 14px;
     padding-bottom: 0px;
+}
+
+.footer .footer-links a {
+    color: #fff;
 }
 
 .navbar-toggler:focus,
@@ -154,6 +160,20 @@
     color: #fff;
     font-weight: 500;
 }
+
+.wid300 {
+    width: 300px;
+}
+
+.wid400 {
+    width: 400px;
+}
+
+/* Advance filter */
+#filterModal .modal-dialog {
+    max-width: 1000px;
+}
+/* Advance filter */
 
 @media screen and (max-width: 767px) {
     .header-nav .free-days {

@@ -32,3 +32,4 @@ yarn-debug.log**
 /.styleci.yml
 /.styleci.cache
 /.phpstorm.meta.php
+public/uploads

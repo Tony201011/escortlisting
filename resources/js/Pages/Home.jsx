@@ -1,9 +1,11 @@
 import AppLayout from "@/Layouts/AppLayout";
 import { Head, Link } from "@inertiajs/react";
 import "../../css/home.css";
+import { useState } from "react";
 
 export default function Home({ ...props }) {
-    console.log(props);
+    // console.log(props);
+    const [searchByName, setSearchByName] = useState(false);
 
     return (
         <AppLayout>
@@ -48,57 +50,40 @@ export default function Home({ ...props }) {
                                         <div className="col-md-1"></div>
                                         <div className="col-md-6 position-relative">
                                             <i className="fa fa-search"></i>
-                                            <input type="text" className="form-control" id="searchInput" placeholder="A city or postcode" />
-                                            <select className="distance position-absolute cursor-pointer" defaultValue={5}>
-                                                <option value={0}>within 0 km</option>
-                                                <option value={5}>within 5 km</option>
-                                                <option value={10}>within 10 km</option>
-                                                <option value={20}>within 20 km</option>
-                                                <option value={50}>within 50 km</option>
-                                            </select>
+                                            {
+                                                searchByName ? (
+                                                    <input type="text" className="form-control searchInput" name="searchInputName" id="searchInputName" placeholder="Search by Name" />
+                                                ) : (<>
+                                                    <input type="text" className="form-control searchInput" name="searchInputLocation" id="searchInputLocation" placeholder="A city or postcode" />
+                                                    <select className="distance position-absolute cursor-pointer" defaultValue={5}>
+                                                        <option value={0}>within 0 km</option>
+                                                        <option value={5}>within 5 km</option>
+                                                        <option value={10}>within 10 km</option>
+                                                        <option value={20}>within 20 km</option>
+                                                        <option value={50}>within 50 km</option>
+                                                    </select>
+                                                </>)
+                                            }
                                         </div>
                                         <div className="col-md-2">
                                             <button type="submit" className="btn btn-danger w-100 filter-submit">Search</button>
                                         </div>
                                         <div className="col-md-2">
-                                            <button type="button" className="btn btn-primary w-100 filter-submit">Search By Name</button>
+                                            {
+                                                searchByName ? (
+                                                    <button type="button" className="btn btn-primary w-100 filter-submit"
+                                                    onClick={() => setSearchByName(false)}>Search By Name</button>
+                                                ) : (
+                                                    <button type="button" className="btn btn-primary w-100 filter-submit"
+                                                    onClick={() => setSearchByName(true)}>Search By Location</button>
+                                                )
+                                            }
                                         </div>
                                         <div className="col-md-12">
                                             <a href="#" className="d-block mt-2 cursor-pointer" data-bs-toggle="modal" data-bs-target="#filterModal">More Filters</a>
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-
-                            <div className="modal fade" id="filterModal" tabIndex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
-                                <div className="modal-dialog">
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <h5 className="modal-title" id="filterModalLabel">More Filters</h5>
-                                            <button type="button" className="close" data-bs-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div className="modal-body">
-                                            <div className="form-group">
-                                                <label htmlFor="ageRange">Age Range</label>
-                                                <input type="text" className="form-control" id="ageRange" placeholder="e.g., 18-30" />
-                                            </div>
-                                            <div className="form-group">
-                                                <label htmlFor="services">Services Offered</label>
-                                                <input type="text" className="form-control" id="services" placeholder="e.g., Massage, BDSM" />
-                                            </div>
-                                            <div className="form-group">
-                                                <label htmlFor="priceRange">Price Range</label>
-                                                <input type="text" className="form-control" id="priceRange" placeholder="e.g., $100-$300" />
-                                            </div>
-                                        </div>
-                                        <div className="modal-footer">
-                                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" className="btn btn-primary">Apply Filters</button>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

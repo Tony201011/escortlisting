@@ -13,14 +13,23 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+    protected $cacheTime = (3600 * 24);
+    public function view(Request $request): Response
+    {
+        $propData['user'] = $request->user();
+        return Inertia::render('Profile/View', compact('propData'));
+    }
     /**
      * Display the user's profile form.
      */
     public function edit(Request $request): Response
     {
+        $propData['user'] = $request->user();
+
         return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
+            'propData' => $propData
         ]);
     }
 
@@ -30,6 +39,16 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
+
+        $request->user()->name = $request->name;
+        $request->user()->email = $request->email;
+        $request->user()->phone = $request->phone;
+        $request->user()->suburb = $request->suburb;
+        $request->user()->city = $request->city;
+        $request->user()->state = $request->state;
+        $request->user()->zipcode = $request->zipcode;
+        $request->user()->latitude = $request->latitude;
+        $request->user()->longitude = $request->longitude;
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;

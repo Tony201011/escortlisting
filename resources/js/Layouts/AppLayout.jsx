@@ -1,3 +1,4 @@
+import AdvanceSearch from '@/Components/AdvanceSearch';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
@@ -6,6 +7,7 @@ export default function AppLayout({ children }) {
     const { errors, session, base_url, auth, config, header_menu, footer_menu } = usePage().props;
     const { post } = useForm([]);
     const [mobileMenuOpen, setMobileMenuOpen] = useState('');
+    const [searchByName, setSearchByName] = useState(false);
     const logout = () => {
         post(route('logout'));
     }
@@ -132,10 +134,11 @@ export default function AppLayout({ children }) {
                                     <li className="nav-item dropdown">
                                         <a className="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{auth.user.name}</a>
                                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a className="dropdown-item" href="#">Dashboard</a>
-                                            <a className="dropdown-item" href="#">Profile</a>
+                                            <Link className="dropdown-item" href={route('dashboard')}>Dashboard</Link>
+                                            <Link className="dropdown-item" href={route('profile.view')}>Account</Link>
+                                            <Link className="dropdown-item" href={route('dashboard')}>Add a New Post</Link>
                                             <div className="dropdown-divider"></div>
-                                            <a className="dropdown-item" href="#">Settings</a>
+                                            <button className="dropdown-item" onClick={logout}>Sign Out</button>
                                         </div>
                                     </li>
                                 )
@@ -201,18 +204,32 @@ export default function AppLayout({ children }) {
                                         <div className="row">
                                             <div className="filter-input col-md-6">
                                                 <label htmlFor="location" className="control-label">Location</label>
-                                                <input className="form-control" name='location' id="location" placeholder="Enter a location to find local escorts" />
+                                                {
+                                                    searchByName ? (
+                                                        <input className="form-control" name='filter_name' id="filter_name" placeholder="Enter a name to find local escorts" />
+                                                    ) : (
+                                                        <input className="form-control" name='filter_location' id="filter_location" placeholder="Enter a location to find local escorts" />
+                                                    )
+                                                }
                                             </div>
                                             <div className="filter-advance col-md-4">
                                                 <div className="control-label label-placeholder"></div>
                                                 <input type="submit" value="Find Escorts" className="btn btn-primary submit-search" />
-                                                <a className="btn btn-link no-hover-underline red-col">
+                                                <a className="btn btn-link no-hover-underline red-col" data-bs-toggle="modal" data-bs-target="#filterModal">
                                                     Advanced search
                                                 </a>
                                             </div>
                                             <div className="filter-advance col-md-2">
                                                 <div className="control-label label-placeholder"></div>
-                                                <a href="#" className="btn btn-default btn-block text-white search-toggle-button" id="switch-search-to-username">Search by Name</a>
+                                                {
+                                                    searchByName ? (
+                                                        <a href="#" className="btn btn-default btn-block text-white search-toggle-button" id="switch-search-to-username"
+                                                            onClick={() => setSearchByName(false)}>By Location</a>
+                                                    ) : (
+                                                        <a href="#" className="btn btn-default btn-block text-white search-toggle-button" id="switch-search-to-username"
+                                                            onClick={() => setSearchByName(true)}>Search by Name</a>
+                                                    )
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -253,5 +270,7 @@ export default function AppLayout({ children }) {
                 </div>
             </div>
         </div>
+
+        <AdvanceSearch />
     </>);
 }

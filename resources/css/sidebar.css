@@ -23,6 +23,7 @@
 .sidebar-auth .accordion-item .accordion-button:not(.collapsed),
 .sidebar-auth .accordion-item .accordion-button:hover,
 .sidebar-auth .accordion-group .accordion-inner a:hover,
+.sidebar-auth .accordion-group .accordion-inner a.active,
 .sidebar-auth .accordion-item:hover,
 .sidebar-auth .accordion-item:hover a {
     background-color: #ddd!important;
@@ -50,7 +51,7 @@
 }
 
 .dashb-nav {
-    padding: 20px 0 !important;
+    padding: 15px 0 !important;
     /* background-color: #181818; */
 }
 

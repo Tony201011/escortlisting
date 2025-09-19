@@ -45,23 +45,19 @@ export default function UpdatePasswordForm({ className = '' }) {
     };
 
     return (
-        <section className={className}>
-            <header>
-                <h2 className="text-lg font-medium text-gray-900">
-                    Update Password
-                </h2>
+        <section className={className + " mt-3"}>
+            <h2 className="text-lg font-medium text-gray-900">
+                Update Password
+            </h2>
 
-                <p className="mt-1 text-sm text-gray-600">
-                    Ensure your account is using a long, random password to stay
-                    secure.
-                </p>
-            </header>
+            <p className="mt-1 text-sm text-gray-600">
+                Ensure your account is using a long, random password to stay
+                secure.
+            </p>
 
-            <form onSubmit={updatePassword} className="mt-6 space-y-6">
-                <div>
-                    <InputLabel
-                        htmlFor="current_password"
-                        value="Current Password"
+            <form onSubmit={updatePassword}>
+                <div className="mb-3">
+                    <InputLabel htmlFor="current_password" value="Current Password" className='form-label'
                     />
 
                     <TextInput
@@ -72,18 +68,18 @@ export default function UpdatePasswordForm({ className = '' }) {
                             setData('current_password', e.target.value)
                         }
                         type="password"
-                        className="mt-1 block w-full"
+                        className="form-control"
                         autoComplete="current-password"
                     />
 
                     <InputError
                         message={errors.current_password}
-                        className="mt-2"
+                        className="mt-2 text-danger fw-medium"
                     />
                 </div>
 
-                <div>
-                    <InputLabel htmlFor="password" value="New Password" />
+                <div className="mb-3">
+                    <InputLabel htmlFor="password" value="New Password" className='form-label' />
 
                     <TextInput
                         id="password"
@@ -91,17 +87,15 @@ export default function UpdatePasswordForm({ className = '' }) {
                         value={data.password}
                         onChange={(e) => setData('password', e.target.value)}
                         type="password"
-                        className="mt-1 block w-full"
+                        className="form-control"
                         autoComplete="new-password"
                     />
 
-                    <InputError message={errors.password} className="mt-2" />
+                    <InputError message={errors.password} className="mt-2 text-danger fw-medium" />
                 </div>
 
-                <div>
-                    <InputLabel
-                        htmlFor="password_confirmation"
-                        value="Confirm Password"
+                <div className="mb-3">
+                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" className='form-label'
                     />
 
                     <TextInput
@@ -111,19 +105,21 @@ export default function UpdatePasswordForm({ className = '' }) {
                             setData('password_confirmation', e.target.value)
                         }
                         type="password"
-                        className="mt-1 block w-full"
+                        className="form-control"
                         autoComplete="new-password"
                     />
 
                     <InputError
                         message={errors.password_confirmation}
-                        className="mt-2"
+                        className="mt-2 text-danger fw-medium"
                     />
                 </div>
 
-                <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                <div className="d-grid">
+                    <button type="submit" className="btn btn-red btn-lg mt-2" disabled={processing}>Save</button>
+                </div>
 
+                <div className="flex items-center gap-4">
                     <Transition
                         show={recentlySuccessful}
                         enter="transition ease-in-out"

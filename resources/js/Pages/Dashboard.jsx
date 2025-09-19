@@ -22,41 +22,24 @@ export default function Dashboard({ ...pageProps }) {
                         <div className="row text-center">
                             <div className="col-md-4">
                                 <div className="content-box">
-                                    <h5>Total Listings</h5>
-                                    <h3>{propData.total_listing}</h3>
-                                    <Link href={route('home')} className="btn btn-default border no-hover-underline">My Listings</Link>
+                                    <h5>Total Photos Post</h5>
+                                    <h3>12</h3>
+                                    <Link href={route('home')} className="btn btn-default border no-hover-underline">My Photos</Link>
                                 </div>
                             </div>
                             <div className="col-md-4">
                                 <div className="content-box">
-                                    <h5>Listing Inquiries</h5>
-                                    <h3>{propData.listing_inquiries}</h3>
-                                    <Link href={route('home')} className="btn btn-default border no-hover-underline">My Listing Inquiries</Link>
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-                                <div className="content-box">
-                                    <h5>My Inquiries</h5>
-                                    <h3>{propData.my_inquiries}</h3>
-                                    <Link href={route('home')} className="btn btn-default border no-hover-underline">My Inquiries</Link>
+                                    <h5>Total Views</h5>
+                                    <h3>125</h3>
+                                    <Link href={route('home')} className="btn btn-default border no-hover-underline">My Photo Views</Link>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="row mb-4">
+                        <div className="row mb-4 mt-4">
                             <div className="col-md-6">
-                                <h5><Link href={route('home')} className="no-hover-underline">🔍 My Saved Searches</Link></h5>
-                                <p>Quickly find businesses each time you search.</p>
-
-                                <h5><Link href={route('profile.edit')} className="no-hover-underline">📧 Manage Email</Link></h5>
-                                <p>Choose how often you receive alerts and emails.</p>
-                            </div>
-                            <div className="col-md-6">
-                                <h5><Link href={route('home')} className="no-hover-underline">💙 My Saved Listings</Link></h5>
-                                <p>Keep an eye on listings you're interested in.</p>
-
-                                <h5>🏢 Franchise Recommendations</h5>
-                                <p>Get personalized franchise suggestions.</p>
+                                <h5><Link href={route('home')} className="no-hover-underline">🔍 Post new photo</Link></h5>
+                                <p>Quickly find escorts each time you search.</p>
                             </div>
                         </div>
                     </main>

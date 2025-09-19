@@ -18,6 +18,49 @@ use Illuminate\Support\Str;
 
 class ApiWebController extends Controller
 {
+    public function profileImageUpdate(Request $request)
+    {
+        $type = ($request->q);
+        if ($request->hasFile('files')) {
+            if ($type == 'profile') {
+                $existingImage = auth()->user()->profile_image;
+                $files = $request->file('files')[0];
+                $dir = public_path('uploads/users');
+                if (!file_exists($dir)) {
+                    mkdir($dir, 0777, true);
+                }
+                $filename = 'pr' . time() . auth()->user()->id . '.' . $files->getClientOriginalExtension();
+                $files->move($dir, $filename);
+                auth()->user()->update(['profile_image' => $filename]);
+    
+                if ($existingImage) {
+                    if (file_exists($dir . '/' . $existingImage)) {
+                        unlink($dir . '/' . $existingImage);
+                    }
+                }
+                return response()->json(['success' => true, 'filename' => $filename, 'message' => 'Profile image uploaded successfully.']);
+            } else if ($type == 'business') {
+                $existingImage = auth()->user()->broker->business_avatar;
+                $files = $request->file('files')[0];
+                $dir = public_path('uploads/business/logo');
+                if (!file_exists($dir)) {
+                    mkdir($dir, 0777, true);
+                }
+                $filename = 'bs' . time() . auth()->user()->id . '.' . $files->getClientOriginalExtension();
+                $files->move($dir, $filename);
+                auth()->user()->broker()->update(['business_avatar' => $filename]);
+    
+                if ($existingImage) {
+                    if (file_exists($dir . '/' . $existingImage)) {
+                        unlink($dir . '/' . $existingImage);
+                    }
+                }
+                return response()->json(['success' => true, 'filename' => $filename, 'message' => 'Business image uploaded successfully.']);
+            }
+        }
+
+        return response()->json(['success' => false, 'message' => 'No business image uploaded.'], 400);
+    }
     public function BusinessLocation(Request $request)
     {
         $location = $request->location;
